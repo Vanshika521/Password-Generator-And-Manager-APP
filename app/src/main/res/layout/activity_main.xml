@@ -7,13 +7,57 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/e"
+        />
+
+
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/txtView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginBottom="100dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="Just One MASTER Password For Multiple Accounts."
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="#0b2544"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        />
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="155dp"
+        android:layout_height="60dp"
+        android:text="Get Started"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:backgroundTint="#0b2544"
+        />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="155dp"
+        android:layout_height="60dp"
+        android:text="Learn More"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="165dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:backgroundTint="#0b2544"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
