@@ -48,7 +48,7 @@
 
     <Button
         android:id="@+id/btn2"
-        android:layout_width="155dp"
+        android:layout_width="153dp"
         android:layout_height="60dp"
         android:text="Learn More"
         android:textSize="20dp"

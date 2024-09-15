@@ -39,15 +39,15 @@ public class SplashScreen extends AppCompatActivity {
         btn1.setAnimation(top);
         btn2.setAnimation(top);
 
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-            //new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                //register.class for registration of user...
-                Intent intent  = new Intent(SplashScreen.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        },3000);
+//        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+//            //new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                //register.class for registration of user...
+//                Intent intent  = new Intent(SplashScreen.this, MainActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        },3000);
     }
 }
