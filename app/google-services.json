@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "918039408087",
+    "project_id": "passwordgeneratorandmanagerapp",
+    "storage_bucket": "passwordgeneratorandmanagerapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:918039408087:android:54cd4bccf00598d373ef92",
+        "android_client_info": {
+          "package_name": "com.android_development.passwordgeneratorandmanagerapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-nz99rnAU_aqWKduOtJSGdFquM7yt-jA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
