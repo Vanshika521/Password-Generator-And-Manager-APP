@@ -17,8 +17,12 @@ public class learn_more extends AppCompatActivity {
     TextView textView1,textView2;
     Button btn1,btn2;
 
-    String title[]={"Abc1","Abc2"};
-    String description[]={"def1","def2"};
+    String title[]={ "Make it Unbreakable" ,  "One Password, Total Protection" , " Encryption at Your Fingertips " , "Full Control Anytime" };
+    String description[]={"Create a powerful password with a mix of uppercase, lowercase, numbers, and special characters to strengthen your security.",
+            "Store and access all your sensitive information securely with just one master password. Quick and reliable.",
+            "Your data is locked with advanced encryption, ensuring it stays safe and private.",
+            "Easily update, delete, or add new passwords whenever you need. Stay in control of your security."};
+
 
     int flag=0;
 
