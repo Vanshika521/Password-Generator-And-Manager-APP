@@ -1,9 +1,16 @@
 package com.android_development.passwordgeneratorandmanagerapp;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +21,9 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
     Button btn1,btn2;
+    Animation Top,top;
+    TextView txtView;
+    ImageView img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +38,14 @@ public class MainActivity extends AppCompatActivity {
 
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
+        img = findViewById(R.id.img);
+        txtView = findViewById(R.id.txtView);
+
+        Top = AnimationUtils.loadAnimation(this,R.anim.top_anim);
+        top = AnimationUtils.loadAnimation(this,R.anim.top);
+
+        txtView.setAnimation(Top);
+        img.startAnimation(top);
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +64,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            //new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //register.class for registration of user...
+                Intent intent  = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        },10000);
 
 
     }

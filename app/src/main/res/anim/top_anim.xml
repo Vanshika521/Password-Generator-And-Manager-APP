@@ -2,15 +2,17 @@
 <set xmlns:android="http://schemas.android.com/apk/res/android">
 
     <translate
-        android:duration = "2000"
+        android:duration="2000"
         android:fromXDelta="0dp"
         android:fromYDelta="-50dp"
-    />
+        android:toXDelta="0dp"
+        android:toYDelta="0dp"
+        />
 
     <alpha
-        android:duration = "1500"
-        android:fromXDelta="0.1dp"
-        android:fromYDelta="1.0dp"
+        android:duration="1500"
+        android:fromAlpha="0.1"
+        android:toAlpha="1.0"
         />
 
 </set>
