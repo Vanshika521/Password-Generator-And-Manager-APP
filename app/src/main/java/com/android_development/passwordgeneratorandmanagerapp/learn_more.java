@@ -3,6 +3,8 @@ package com.android_development.passwordgeneratorandmanagerapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -16,6 +18,7 @@ public class learn_more extends AppCompatActivity {
 
     TextView textView1,textView2;
     Button btn1,btn2;
+    Animation top;
 
     String title[]={ "Make it Unbreakable" ,  "One Password, Total Protection" , " Encryption at Your Fingertips " , "Full Control Anytime" };
     String description[]={"Create a powerful password with a mix of uppercase, lowercase, numbers, and special characters to strengthen your security.",
@@ -46,6 +49,10 @@ public class learn_more extends AppCompatActivity {
         textView1.setText(title[flag]);
         textView2.setText(description[flag]);
 
+        top = AnimationUtils.loadAnimation(this,R.anim.top);
+
+        btn1.setAnimation(top);
+        btn2.setAnimation(top);
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override

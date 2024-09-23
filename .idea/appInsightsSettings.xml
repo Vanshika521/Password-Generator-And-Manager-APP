@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.android_development.passwordgeneratorandmanagerapp" />
+                  <option name="mobileSdkAppId" value="1:918039408087:android:54cd4bccf00598d373ef92" />
+                  <option name="projectId" value="passwordgeneratorandmanagerapp" />
+                  <option name="projectNumber" value="918039408087" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
