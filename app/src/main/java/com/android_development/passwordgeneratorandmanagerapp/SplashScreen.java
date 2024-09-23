@@ -1,6 +1,8 @@
 package com.android_development.passwordgeneratorandmanagerapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -35,7 +37,21 @@ public class SplashScreen extends AppCompatActivity {
         btn1.setAnimation(top);
         btn2.setAnimation(top);
 
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SplashScreen.this,generate_pwd.class);
+                startActivity(intent);
+            }
+        });
 
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(SplashScreen.this,manage_password.class);
+                startActivity(intent);
+            }
+        });
 
 
     }

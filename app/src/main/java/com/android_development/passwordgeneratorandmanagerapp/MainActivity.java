@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,register.class);
+                Intent intent = new Intent(MainActivity.this,login.class);
                 startActivity(intent);
                 finish();
             }
@@ -64,18 +64,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-//        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-//            //new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                //register.class for registration of user...
-//                Intent intent  = new Intent(MainActivity.this, MainActivity.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        },10000);
-
-
     }
 }
