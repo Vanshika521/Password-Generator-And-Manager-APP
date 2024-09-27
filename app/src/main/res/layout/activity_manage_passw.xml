@@ -51,7 +51,7 @@
             android:backgroundTint="@color/white"
             >
             <EditText
-                android:id="@+id/title"
+                android:id="@+id/pwd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
@@ -62,7 +62,7 @@
                 android:padding="12dp"
                 />
             <EditText
-                android:id="@+id/content"
+                android:id="@+id/desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Description"

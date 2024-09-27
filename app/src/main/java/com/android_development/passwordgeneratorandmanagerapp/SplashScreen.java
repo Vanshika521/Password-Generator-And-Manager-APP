@@ -15,8 +15,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class SplashScreen extends AppCompatActivity {
 
-    Animation top;
-    Button btn1,btn2;
+  //  Animation top;
+    //Button btn1,btn2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,29 +29,29 @@ public class SplashScreen extends AppCompatActivity {
             return insets;
         });
 
-        btn1 = findViewById(R.id.btn1);
-        btn2 = findViewById(R.id.btn2);
-
-        top = AnimationUtils.loadAnimation(this,R.anim.blur);
-
-        btn1.setAnimation(top);
-        btn2.setAnimation(top);
-
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SplashScreen.this,generate_pwd.class);
-                startActivity(intent);
-            }
-        });
-
-        btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent =new Intent(SplashScreen.this,manage_password.class);
-                startActivity(intent);
-            }
-        });
+//        btn1 = findViewById(R.id.btn1);
+//        btn2 = findViewById(R.id.btn2);
+//
+//        top = AnimationUtils.loadAnimation(this,R.anim.blur);
+//
+//        btn1.setAnimation(top);
+//        btn2.setAnimation(top);
+//
+//        btn1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(SplashScreen.this,generate_pwd.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        btn2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent =new Intent(SplashScreen.this,manage_password.class);
+//                startActivity(intent);
+//            }
+//        });
 
 
     }
