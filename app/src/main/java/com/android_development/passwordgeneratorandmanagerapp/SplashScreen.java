@@ -22,13 +22,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.Query;
+
 
 public class SplashScreen extends AppCompatActivity {
 
     FloatingActionButton fBtn;
     RecyclerView recyclerView;
     ImageButton menuBtn;
-    RecyclerView.Adapter Adapter;
+    adapter Adapter;
 
 
 
@@ -78,39 +81,38 @@ public class SplashScreen extends AppCompatActivity {
                 });
             }
         });
- //       setupRecyclerView();
+       setupRecyclerView();
     }
 
-//    void setupRecyclerView() {
-//        DownloadManager.Query query = utility.getCollectionReference().orderBy("timestamp", Query.Direction.DESCENDING);
-//        FirestoreRecyclerOptions<note> options = new FirestoreRecyclerOptions.Builder<note>().setQuery(query, note.class).build();
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        Adapter = new adapter(options, this);
-//        recyclerView.setAdapter(Adapter);
-//    }
-//    @Override
-//    protected void onStart()
-//    {
-//        super.onStart();
-//        Adapter.startListening();
-//    }
-//
-//    @Override
-//    protected void onStop()
-//    {
-//        super.onStop();
-//        Adapter.stopListening();
-//    }
-//    @Override
-//    protected void onResume()
-//    {
-//        super.onResume();
-//        Adapter.notifyDataSetChanged();
-//    }
-//
-//
-//}
+    void setupRecyclerView() {
+        DownloadManager.Query query = utility.getCollectionReference().orderBy("timestamp", Query.Direction.DESCENDING);
+        FirestoreRecyclerOptions<manage_password.note> options = new FirestoreRecyclerOptions.Builder<note>().setQuery(query, manage_password.note.class).build();
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        Adapter = new adapter(options, this);
+        recyclerView.setAdapter(Adapter);
+    }
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
+        Adapter.startListening();
+    }
+
+    @Override
+    protected void onStop()
+    {
+        super.onStop();
+        Adapter.stopListening();
+    }
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        Adapter.notifyDataSetChanged();
+    }
 
 
-  //  }
 }
+
+
+

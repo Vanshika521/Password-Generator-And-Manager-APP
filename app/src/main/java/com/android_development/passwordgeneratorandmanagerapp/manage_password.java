@@ -173,4 +173,3 @@ public class manage_password extends AppCompatActivity {
         }
     }
 }
-}
