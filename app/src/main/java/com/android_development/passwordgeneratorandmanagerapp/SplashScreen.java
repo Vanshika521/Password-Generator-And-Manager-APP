@@ -1,22 +1,36 @@
 package com.android_development.passwordgeneratorandmanagerapp;
 
+import android.app.DownloadManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.PopupMenu;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+
 
 public class SplashScreen extends AppCompatActivity {
 
-  //  Animation top;
-    //Button btn1,btn2;
+    FloatingActionButton fBtn;
+    RecyclerView recyclerView;
+    ImageButton menuBtn;
+    RecyclerView.Adapter Adapter;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,31 +42,75 @@ public class SplashScreen extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        menuBtn = findViewById(R.id.menuBtn);
+        recyclerView = findViewById(R.id.recycleView);
 
-//        btn1 = findViewById(R.id.btn1);
-//        btn2 = findViewById(R.id.btn2);
-//
-//        top = AnimationUtils.loadAnimation(this,R.anim.blur);
-//
-//        btn1.setAnimation(top);
-//        btn2.setAnimation(top);
-//
-//        btn1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(SplashScreen.this,generate_pwd.class);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        btn2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent =new Intent(SplashScreen.this,manage_password.class);
-//                startActivity(intent);
-//            }
-//        });
+        fBtn = findViewById(R.id.add_notes);
 
 
+        fBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SplashScreen.this, manage_password.class);
+                startActivity(intent);
+            }
+        });
+
+        menuBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // logOut();
+                PopupMenu popupmenu  = new PopupMenu(SplashScreen.this,menuBtn);
+                popupmenu.getMenu().add("Logout");
+                popupmenu.show();
+                popupmenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        if (menuItem.getTitle() == "Logout") {
+                            FirebaseAuth.getInstance().signOut();
+                            Intent intent = new Intent(SplashScreen.this, login.class);
+                            startActivity(intent);
+                            finish();
+                            return true;
+                        }
+                        return false;
+                    }
+                });
+            }
+        });
+ //       setupRecyclerView();
     }
+
+//    void setupRecyclerView() {
+//        DownloadManager.Query query = utility.getCollectionReference().orderBy("timestamp", Query.Direction.DESCENDING);
+//        FirestoreRecyclerOptions<note> options = new FirestoreRecyclerOptions.Builder<note>().setQuery(query, note.class).build();
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        Adapter = new adapter(options, this);
+//        recyclerView.setAdapter(Adapter);
+//    }
+//    @Override
+//    protected void onStart()
+//    {
+//        super.onStart();
+//        Adapter.startListening();
+//    }
+//
+//    @Override
+//    protected void onStop()
+//    {
+//        super.onStop();
+//        Adapter.stopListening();
+//    }
+//    @Override
+//    protected void onResume()
+//    {
+//        super.onResume();
+//        Adapter.notifyDataSetChanged();
+//    }
+//
+//
+//}
+
+
+  //  }
 }
