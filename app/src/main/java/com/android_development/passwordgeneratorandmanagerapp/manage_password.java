@@ -29,13 +29,13 @@ public class manage_password extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+   //     EdgeToEdge.enable(this);
         setContentView(R.layout.activity_manage_passw);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+//            return insets;
+//        });
 
         pwd = findViewById(R.id.pwd);
         desc = findViewById(R.id.desc);
@@ -76,18 +76,25 @@ public class manage_password extends AppCompatActivity {
                 }
 
                 note Note = new note();
+
                 Note.setTitle(notes_title);
+
                 Note.setContent(notes_content);
+                System.out.println("3");
                 Note.setTimestamp(Timestamp.now());
+                System.out.println("4");
 
                 saveNote(Note);
+                System.out.println("1");
             }
 
             void saveNote (note Note)
             {
+                System.out.println("2");
                 DocumentReference documentReference;
                 if(isEditMode)
                 {
+                    System.out.println("3");
                     //Edit Note
                     documentReference = utility.getCollectionReference().document(docId);
                 }
@@ -139,37 +146,5 @@ public class manage_password extends AppCompatActivity {
 
     }
 
-    // note class included in this file
-    public static class note {
-        String title;
-        String content;
-        Timestamp timestamp;
 
-        public note() {
-        }
-
-        public String getTitle() {
-            return title;
-        }
-
-        public void setTitle(String title) {
-            this.title = title;
-        }
-
-        public String getContent() {
-            return content;
-        }
-
-        public void setContent(String content) {
-            this.content = content;
-        }
-
-        public Timestamp getTimestamp() {
-            return timestamp;
-        }
-
-        public void setTimestamp(Timestamp timestamp) {
-            this.timestamp = timestamp;
-        }
-    }
 }
