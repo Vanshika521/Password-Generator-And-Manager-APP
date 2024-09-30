@@ -1,5 +1,6 @@
 package com.android_development.passwordgeneratorandmanagerapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -49,6 +50,8 @@ public class manage_password extends AppCompatActivity {
         content1 = getIntent().getStringExtra("content");
         docId = getIntent().getStringExtra("docId");
 
+        dltBtn.setVisibility(View.GONE);
+
         if(docId != null && !docId.isEmpty())
         {
             isEditMode = true ;
@@ -76,25 +79,20 @@ public class manage_password extends AppCompatActivity {
                 }
 
                 note Note = new note();
-
                 Note.setTitle(notes_title);
-
                 Note.setContent(notes_content);
-                System.out.println("3");
                 Note.setTimestamp(Timestamp.now());
-                System.out.println("4");
-
                 saveNote(Note);
-                System.out.println("1");
+                Intent intent = new Intent(manage_password.this,SplashScreen.class);
+                startActivity(intent);
             }
 
             void saveNote (note Note)
             {
-                System.out.println("2");
                 DocumentReference documentReference;
                 if(isEditMode)
                 {
-                    System.out.println("3");
+
                     //Edit Note
                     documentReference = utility.getCollectionReference().document(docId);
                 }
@@ -132,7 +130,11 @@ public class manage_password extends AppCompatActivity {
                         {
                             //note is successfully deleted......
                             utility.showToast(manage_password.this,"Note Deleted Successfully");
-                            finish();
+
+                            Intent intent = new Intent(manage_password.this,SplashScreen.class);
+                            startActivity(intent);
+
+
                         }
                         else{
                             utility.showToast(manage_password.this,"Error Occurred While Deleting Notes ");
