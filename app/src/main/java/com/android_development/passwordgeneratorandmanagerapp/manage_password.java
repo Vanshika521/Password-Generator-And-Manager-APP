@@ -3,6 +3,7 @@ package com.android_development.passwordgeneratorandmanagerapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -25,6 +26,7 @@ public class manage_password extends AppCompatActivity {
     ImageButton saveBtn;
     TextView heading,dltBtn;
     String title1,content1,docId;
+    Button generateBtn;
     boolean isEditMode = false;
 
     @Override
@@ -42,6 +44,8 @@ public class manage_password extends AppCompatActivity {
         desc = findViewById(R.id.desc);
         saveBtn = findViewById(R.id.saveBtn);
 
+        generateBtn = findViewById(R.id.generateBtn);
+
         heading = findViewById(R.id.heading);
         dltBtn = findViewById(R.id.dltBtn);
 
@@ -50,6 +54,7 @@ public class manage_password extends AppCompatActivity {
         content1 = getIntent().getStringExtra("content");
         docId = getIntent().getStringExtra("docId");
 
+        generateBtn.setVisibility(View.GONE);
         dltBtn.setVisibility(View.GONE);
 
         if(docId != null && !docId.isEmpty())
@@ -65,6 +70,11 @@ public class manage_password extends AppCompatActivity {
             dltBtn.setVisibility(View.VISIBLE);
         }
 
+        if(!isEditMode)
+        {
+            heading.setText("Edit Your Note");
+            generateBtn.setVisibility(View.VISIBLE);
+        }
 
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,9 +131,12 @@ public class manage_password extends AppCompatActivity {
         dltBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(manage_password.this,SplashScreen.class);
+                startActivity(intent);
                 DocumentReference documentReference;
                 documentReference = utility.getCollectionReference().document(docId);
                 documentReference.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful())
@@ -131,8 +144,6 @@ public class manage_password extends AppCompatActivity {
                             //note is successfully deleted......
                             utility.showToast(manage_password.this,"Note Deleted Successfully");
 
-                            Intent intent = new Intent(manage_password.this,SplashScreen.class);
-                            startActivity(intent);
 
 
                         }
