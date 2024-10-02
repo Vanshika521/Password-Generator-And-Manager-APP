@@ -72,9 +72,17 @@ public class manage_password extends AppCompatActivity {
 
         if(!isEditMode)
         {
-            heading.setText("Edit Your Note");
+            heading.setText("Add Your Note");
             generateBtn.setVisibility(View.VISIBLE);
         }
+
+        generateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(manage_password.this,generate_pwd.class);
+                startActivity(intent);
+            }
+        });
 
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override

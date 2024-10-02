@@ -105,7 +105,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:textColor="@color/black"
-            android:layout_marginBottom="20dp"
+           android:layout_marginBottom="20dp"
             android:visibility="gone"
             android:layout_alignParentBottom="true"
             android:backgroundTint="#D9F0F2"
