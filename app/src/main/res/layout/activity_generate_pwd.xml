@@ -18,23 +18,14 @@
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/textView1"
-        android:text="Your Generated Password is :"
-        android:textSize="20dp"
-        android:textColor="@color/white"
-        android:textAlignment="center" />
+
 
     <LinearLayout
         android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_below="@id/textView2"
+        android:layout_below="@id/textView1"
         android:padding="6dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
@@ -88,5 +79,43 @@
         android:layout_marginRight="10dp"
         android:layout_below="@+id/layout"
         />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/btn1"
+        android:text="Your Generated Password is :"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select password length"
+        android:layout_below="@id/textView2"
+android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="20"
+        android:progress="8"
+        android:layout_below="@id/textView3"
+        />
+
+    <TextView
+        android:id="@+id/tvPasswordLength"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password Length: 8"
+        android:layout_below="@id/seekBar"
+android:textColor="@color/white"
+        android:textSize="16sp" />
 
 </RelativeLayout>
