@@ -1,9 +1,13 @@
 package com.android_development.passwordgeneratorandmanagerapp;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,9 +18,11 @@ public class generate_pwd extends AppCompatActivity {
 
     TextView textView1, textView2, tvPasswordLength;
     Button btn;
+    ImageButton copy;
     CheckBox cbtnA, cbtnB, cbtnC, cbtnD;
     SeekBar seekBarLength;
     int passwordLength = 8; // Default password length
+    ClipboardManager clipboardManager; // Declare ClipboardManager
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +31,20 @@ public class generate_pwd extends AppCompatActivity {
 
         textView1 = findViewById(R.id.textView1);
         textView2 = findViewById(R.id.textView2);
-        tvPasswordLength = findViewById(R.id.tvPasswordLength);
+
+        tvPasswordLength = findViewById(R.id.pwdLength);
+
         btn = findViewById(R.id.btn1);
         cbtnA = findViewById(R.id.cbtnA);
         cbtnB = findViewById(R.id.cbtnB);
         cbtnC = findViewById(R.id.cbtnC);
         cbtnD = findViewById(R.id.cbtnD);
+        copy = findViewById(R.id.copy);
+
         seekBarLength = findViewById(R.id.seekBar);
+
+        // Initialize the ClipboardManager
+        clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
 
         // Set default password length in the TextView
         tvPasswordLength.setText("Password Length: " + passwordLength);
@@ -40,21 +53,15 @@ public class generate_pwd extends AppCompatActivity {
         seekBarLength.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                // Update the password length value as the user moves the SeekBar
                 passwordLength = progress;
-                // Update the TextView to show the current password length
                 tvPasswordLength.setText("Password Length: " + passwordLength);
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                // This can be left empty if no action is required when tracking starts
-            }
+            public void onStartTrackingTouch(SeekBar seekBar) {}
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                // This can be left empty if no action is required when tracking stops
-            }
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
         String lowerCase = "abcdefghijklmnopqrstuvwxyz";
@@ -65,22 +72,18 @@ public class generate_pwd extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String characters = "";
                 if (cbtnA.isChecked()) {
-                    characters = lowerCase + characters;
+                    characters += lowerCase;
                 }
-
                 if (cbtnB.isChecked()) {
-                    characters = upperCase + characters;
+                    characters += upperCase;
                 }
-
                 if (cbtnC.isChecked()) {
-                    characters = number + characters;
+                    characters += number;
                 }
-
                 if (cbtnD.isChecked()) {
-                    characters = specialChars + characters;
+                    characters += specialChars;
                 }
 
                 if (characters.isEmpty()) {
@@ -97,7 +100,28 @@ public class generate_pwd extends AppCompatActivity {
                     password.append(randomChar);
                 }
 
-                textView2.setText("Your Generated Password is: " + password.toString());
+                textView2.setText("Your Generated Password is: \n" + password.toString());
+            }
+        });
+
+        // Copy the generated password when the copy button is clicked
+        copy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String passwordText = textView2.getText().toString();
+
+                if (!passwordText.isEmpty()) {
+                    // Remove the "Your Generated Password is:" part from the textView2 content
+                    String passwordToCopy = passwordText.replace("Your Generated Password is: \n", "");
+
+                    // Copy the password to clipboard
+                    ClipData clip = ClipData.newPlainText("Password", passwordToCopy);
+                    clipboardManager.setPrimaryClip(clip);
+
+                    Toast.makeText(generate_pwd.this, "Password copied to clipboard", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(generate_pwd.this, "No password to copy", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
