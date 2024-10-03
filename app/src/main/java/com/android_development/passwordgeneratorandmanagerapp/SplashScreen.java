@@ -49,11 +49,18 @@ public class SplashScreen extends AppCompatActivity {
         menuBtn.setOnClickListener(view -> {
             PopupMenu popupMenu = new PopupMenu(SplashScreen.this, menuBtn);
             popupMenu.getMenu().add("Logout");
+            popupMenu.getMenu().add("Generate");
             popupMenu.show();
             popupMenu.setOnMenuItemClickListener(menuItem -> {
                 if (menuItem.getTitle().equals("Logout")) {
                     FirebaseAuth.getInstance().signOut();
                     Intent intent = new Intent(SplashScreen.this, login.class);
+                    startActivity(intent);
+                    finish();
+                    return true;
+                }
+                if(menuItem.getTitle().equals("Generate")){
+                    Intent intent = new Intent(SplashScreen.this, generate_pwd.class);
                     startActivity(intent);
                     finish();
                     return true;
