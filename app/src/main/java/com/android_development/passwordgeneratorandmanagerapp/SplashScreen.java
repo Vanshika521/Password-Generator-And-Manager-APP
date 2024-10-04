@@ -53,24 +53,32 @@ public class SplashScreen extends AppCompatActivity {
             public void onClick(View view) {
 
             PopupMenu popupMenu = new PopupMenu(SplashScreen.this, menuBtn);
-            popupMenu.getMenu().add("Generate New Password");
-            popupMenu.getMenu().add("Add New Password");
-            popupMenu.getMenu().add("Logout");
+
+            popupMenu.getMenu().add("Password Power Check!");
+            popupMenu.getMenu().add("Craft Your New Password!");
+            popupMenu.getMenu().add("Secure Your Secrets!");
+            popupMenu.getMenu().add("Log Out Securely!");
             popupMenu.show();
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
 
-                        if(menuItem.getTitle().equals("Generate New Password")){
+                        if(menuItem.getTitle().equals("Password Power Check!")){
                             Intent intent = new Intent(SplashScreen.this, generate_pwd.class);
                             startActivity(intent);
                         }
-                        if(menuItem.getTitle().equals("Add New Password")){
+                        if(menuItem.getTitle().equals("Craft Your New Password!")){
+                            Intent intent = new Intent(SplashScreen.this, generate_pwd.class);
+                            startActivity(intent);
+                        }
+
+                        if(menuItem.getTitle().equals("Secure Your Secrets!")){
                             Intent intent = new Intent(SplashScreen.this, manage_password.class);
                             startActivity(intent);
                         }
-                        if (menuItem.getTitle().equals("Logout")) {
+
+                        if (menuItem.getTitle().equals("Log Out Securely!")) {
                             FirebaseAuth.getInstance().signOut();
                             Intent intent = new Intent(SplashScreen.this, login.class);
                             startActivity(intent);
