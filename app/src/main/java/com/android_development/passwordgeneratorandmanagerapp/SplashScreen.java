@@ -2,6 +2,8 @@ package com.android_development.passwordgeneratorandmanagerapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 
@@ -46,28 +48,39 @@ public class SplashScreen extends AppCompatActivity {
             startActivity(intent);
         });
 
-        menuBtn.setOnClickListener(view -> {
+        menuBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             PopupMenu popupMenu = new PopupMenu(SplashScreen.this, menuBtn);
+            popupMenu.getMenu().add("Generate New Password");
+            popupMenu.getMenu().add("Add New Password");
             popupMenu.getMenu().add("Logout");
-            popupMenu.getMenu().add("Generate");
             popupMenu.show();
-            popupMenu.setOnMenuItemClickListener(menuItem -> {
-                if (menuItem.getTitle().equals("Logout")) {
-                    FirebaseAuth.getInstance().signOut();
-                    Intent intent = new Intent(SplashScreen.this, login.class);
-                    startActivity(intent);
-                    finish();
-                    return true;
-                }
-                if(menuItem.getTitle().equals("Generate")){
-                    Intent intent = new Intent(SplashScreen.this, generate_pwd.class);
-                    startActivity(intent);
-                    finish();
-                    return true;
-                }
-                return false;
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+
+                        if(menuItem.getTitle().equals("Generate New Password")){
+                            Intent intent = new Intent(SplashScreen.this, generate_pwd.class);
+                            startActivity(intent);
+                        }
+                        if(menuItem.getTitle().equals("Add New Password")){
+                            Intent intent = new Intent(SplashScreen.this, manage_password.class);
+                            startActivity(intent);
+                        }
+                        if (menuItem.getTitle().equals("Logout")) {
+                            FirebaseAuth.getInstance().signOut();
+                            Intent intent = new Intent(SplashScreen.this, login.class);
+                            startActivity(intent);
+                        }
+
+                        return false;
+                    }
+                });
+            }
             });
-        });
 
         setupRecyclerView();
     }
