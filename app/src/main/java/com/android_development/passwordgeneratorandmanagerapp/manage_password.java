@@ -2,6 +2,7 @@ package com.android_development.passwordgeneratorandmanagerapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -122,8 +123,12 @@ public class manage_password extends AppCompatActivity {
                 documentReference.set(Note).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
+                        Log.d("ManagePassword","HELLO");
+                        System.out.print("12");
                         if(task.isSuccessful())
                         {
+                            System.out.println("Done");
+                            Log.d("ManagePassword", "Saving note with timestamp: " + Note.getTimestamp().toString());
                             //note is successfully added......
                             finish();
                         }

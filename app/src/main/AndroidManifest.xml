@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:package="http://schemas.android.com/apk/res-auto"
+    package = "com.android_development.passwordgeneratorandmanagerapp">
 
     <application
         android:allowBackup="true"
@@ -14,9 +16,6 @@
         tools:targetApi="31">
         <activity
             android:name=".pwd_strength"
-            android:exported="false" />
-        <activity
-            android:name=".extra"
             android:exported="false" />
         <activity
             android:name=".manage_password"
@@ -46,5 +45,9 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
 
 </manifest>
