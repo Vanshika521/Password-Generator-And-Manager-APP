@@ -123,8 +123,7 @@ public class manage_password extends AppCompatActivity {
                 documentReference.set(Note).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Log.d("ManagePassword","HELLO");
-                        System.out.print("12");
+
                         if(task.isSuccessful())
                         {
                             System.out.println("Done");

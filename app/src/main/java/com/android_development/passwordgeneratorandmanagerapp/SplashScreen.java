@@ -65,7 +65,7 @@ public class SplashScreen extends AppCompatActivity {
                     public boolean onMenuItemClick(MenuItem menuItem) {
 
                         if(menuItem.getTitle().equals("Password Power Check!")){
-                            Intent intent = new Intent(SplashScreen.this, generate_pwd.class);
+                            Intent intent = new Intent(SplashScreen.this, pwd_strength.class);
                             startActivity(intent);
                         }
                         if(menuItem.getTitle().equals("Craft Your New Password!")){
