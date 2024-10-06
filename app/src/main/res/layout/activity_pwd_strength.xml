@@ -31,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Add Your Password Here..."
+        android:textSize="22dp"
         android:textColorHint="#fff"
         android:layout_marginTop="60dp"
         android:layout_marginLeft="15dp"
@@ -38,16 +39,27 @@
         app:layout_constraintTop_toBottomOf="@id/textView1"
         />
 
-<Button
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Analyze Password"
-    android:textSize="24dp"
-    android:layout_marginTop="60dp"
-    android:layout_marginLeft="15dp"
-    android:layout_marginRight="15dp"
-    android:textColor="@color/black"
-    android:backgroundTint="#D9F0F2"
-    app:layout_constraintTop_toBottomOf="@id/pwd"/>
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Analyze Password"
+        android:textSize="24dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textColor="@color/black"
+        android:backgroundTint="#D9F0F2"
+        app:layout_constraintTop_toBottomOf="@id/pwd"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:textSize="24dp"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/btn"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
