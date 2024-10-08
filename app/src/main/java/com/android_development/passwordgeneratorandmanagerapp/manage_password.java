@@ -67,13 +67,13 @@ public class manage_password extends AppCompatActivity {
         desc.setText(content1);
         if(isEditMode)
         {
-            heading.setText("Edit Your Note");
+            heading.setText("Edit Your Information");
             dltBtn.setVisibility(View.VISIBLE);
         }
 
         if(!isEditMode)
         {
-            heading.setText("Add Your Note");
+            heading.setText("Add Your Password");
             generateBtn.setVisibility(View.VISIBLE);
         }
 
@@ -88,36 +88,36 @@ public class manage_password extends AppCompatActivity {
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String notes_title = pwd.getText().toString();
-                String notes_content = desc.getText().toString();
+                String title = pwd.getText().toString();
+                String content = desc.getText().toString();
 
-                if(notes_title == null || notes_title.isEmpty())
+                if(title == null || title.isEmpty())
                 {
                     pwd.setError("Password Is Required!!!");
                     return;
                 }
 
                 note Note = new note();
-                Note.setTitle(notes_title);
-                Note.setContent(notes_content);
+                Note.setTitle(title);
+                Note.setContent(content);
                 Note.setTimestamp(Timestamp.now());
-                saveNote(Note);
+                save(Note);
                 Intent intent = new Intent(manage_password.this,SplashScreen.class);
                 startActivity(intent);
             }
 
-            void saveNote (note Note)
+            void save (note Note)
             {
                 DocumentReference documentReference;
                 if(isEditMode)
                 {
 
-                    //Edit Note
+                   //EDIT
                     documentReference = utility.getCollectionReference().document(docId);
                 }
                 else
                 {
-                    //Create Note
+                    //Create
                     documentReference = utility.getCollectionReference().document();
                 }
                 documentReference.set(Note).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -127,12 +127,12 @@ public class manage_password extends AppCompatActivity {
                         if(task.isSuccessful())
                         {
                             System.out.println("Done");
-                            Log.d("ManagePassword", "Saving note with timestamp: " + Note.getTimestamp().toString());
-                            //note is successfully added......
+                            Log.d("ManagePassword", "Saving Password with timestamp: " + Note.getTimestamp().toString());
+                            //successfully added......
                             finish();
                         }
                         else{
-                            utility.showToast(manage_password.this,"Error Occurred While Adding Notes ");
+                            utility.showToast(manage_password.this,"Error Occurred While Adding Password ");
                         }
 
                     }
@@ -153,14 +153,14 @@ public class manage_password extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful())
                         {
-                            //note is successfully deleted......
-                            utility.showToast(manage_password.this,"Note Deleted Successfully");
+                            // successfully deleted......
+                            utility.showToast(manage_password.this,"Password Deleted Successfully");
 
 
 
                         }
                         else{
-                            utility.showToast(manage_password.this,"Error Occurred While Deleting Notes ");
+                            utility.showToast(manage_password.this,"Error Occurred While Deleting Password ");
                         }
 
                     }

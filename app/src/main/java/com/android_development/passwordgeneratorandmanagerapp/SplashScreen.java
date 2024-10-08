@@ -41,7 +41,7 @@ public class SplashScreen extends AppCompatActivity {
 
         menuBtn = findViewById(R.id.menuBtn);
         recyclerView = findViewById(R.id.recycleView);
-        fBtn = findViewById(R.id.add_notes);
+        fBtn = findViewById(R.id.add_pwd);
 
         fBtn.setOnClickListener(view -> {
             Intent intent = new Intent(SplashScreen.this, manage_password.class);
