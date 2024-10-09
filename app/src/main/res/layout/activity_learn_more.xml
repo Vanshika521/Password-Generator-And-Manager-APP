@@ -8,7 +8,6 @@
     tools:context=".learn_more"
     android:background="#D9F0F2">
 
-
    <TextView
        android:id="@+id/textView1"
        android:layout_width="match_parent"
