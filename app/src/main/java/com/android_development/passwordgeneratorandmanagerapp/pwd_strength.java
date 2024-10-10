@@ -1,11 +1,13 @@
 package com.android_development.passwordgeneratorandmanagerapp;
 
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,7 @@ public class pwd_strength extends AppCompatActivity {
     EditText pwd;
     Button btn;
     Animation top;
+    ProgressBar pbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,8 @@ public class pwd_strength extends AppCompatActivity {
 
         textView2.setAnimation(top);
 
+        pbar = findViewById(R.id.pbar);
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,22 +59,29 @@ public class pwd_strength extends AppCompatActivity {
                         password.matches(".*[0-9].*") &&  // At least one digit
                         password.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?.].*")) {
                     textView2.setText("🔐 Master-Level Security! 💪");
+                    pbar.setVisibility(View.VISIBLE);
+                    pbar.getProgressDrawable().setColorFilter(getResources().getColor(R.color.dark_green), PorterDuff.Mode.SRC_IN);
                 } else if (password.matches(".*[A-Z].*") && password.matches(".*[a-z].*") && password.matches(".*[0-9].*") ||
                         password.matches(".*[A-Z].*") && password.matches(".*[a-z].*") && password.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?.].*") ||
                         password.matches(".*[A-Z].*") && password.matches(".*[0-9].*") && password.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?.].*") ||
                         password.matches(".*[a-z].*") && password.matches(".*[0-9].*") && password.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?.].*")) {
+                    pbar.getProgressDrawable().setColorFilter(getResources().getColor(R.color.green), PorterDuff.Mode.SRC_IN);
                     textView2.setText("🔒 You're well-protected! 👍");
                 } else if (password.matches(".*[A-Z].*") && password.matches(".*[a-z].*") ||
                         password.matches(".*[a-z].*") && password.matches(".*[0-9].*") ||
+                        password.matches(".*[A-Z].*") && password.matches(".*[0-9].*") ||
                         password.matches(".*[0-9].*") && password.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?.].*") ||
                         password.matches(".*[A-Z].*") && password.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?.].*") ||
-                        password.matches(".*[a-z].*") && password.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?.].*") ||
-                        password.matches(".*[a-z].*") && password.matches(".*[0-9].*")) {
+                        password.matches(".*[a-z].*") && password.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?.].*")) {
+                    pbar.getProgressDrawable().setColorFilter(getResources().getColor(R.color.yellow), PorterDuff.Mode.SRC_IN);
                     textView2.setText("⚠️ Decent, but could be stronger! 🛠️");
                 } else {
+                    pbar.setVisibility(View.VISIBLE);
+                    pbar.getProgressDrawable().setColorFilter(getResources().getColor(R.color.red), PorterDuff.Mode.SRC_IN);
                     textView2.setText("❗ Exposed to Danger! 🛑");
                 }
             }
         });
     }
 }
+// passwordStrengthBar.getProgressDrawable().setColorFilter(getResources().getColor(R.color.red), PorterDuff.Mode.SRC_IN);
