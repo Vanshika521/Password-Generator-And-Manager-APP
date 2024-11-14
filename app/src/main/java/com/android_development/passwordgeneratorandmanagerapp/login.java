@@ -80,7 +80,9 @@ public class login extends AppCompatActivity {
                         }
 
                         else {
-                            Toast.makeText(login.this,"ERROR!!!"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                            Toast.makeText(login.this,"ERROR!!!  WRONG CREDENTIALS",Toast.LENGTH_SHORT).show();
+
+                            //   Toast.makeText(login.this,"ERROR!!!"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
 //                            pbar.setVisibility(View.GONE);
                         }
                     }
