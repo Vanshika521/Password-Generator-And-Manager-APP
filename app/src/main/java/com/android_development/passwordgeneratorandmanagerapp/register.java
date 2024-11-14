@@ -100,7 +100,7 @@ public class register extends AppCompatActivity {
                 }
 
                 if(!pwd.equals(cpwd)){
-                    mPwd.setError("Password And Confirm Password Must Be Same");
+                    mCpwd.setError("Password And Confirm Password Must Be Same");
                     return;
                 }
 
