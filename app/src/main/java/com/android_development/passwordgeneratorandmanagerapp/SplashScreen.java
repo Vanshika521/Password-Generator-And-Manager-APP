@@ -44,7 +44,7 @@ public class SplashScreen extends AppCompatActivity {
         fBtn = findViewById(R.id.add_pwd);
 
         fBtn.setOnClickListener(view -> {
-            Intent intent = new Intent(SplashScreen.this, manage_password.class);
+            Intent intent = new Intent(SplashScreen.this, manage_pwd.class);
             startActivity(intent);
         });
 
@@ -74,7 +74,7 @@ public class SplashScreen extends AppCompatActivity {
                         }
 
                         if(menuItem.getTitle().equals("Secure Your Secrets!")){
-                            Intent intent = new Intent(SplashScreen.this, manage_password.class);
+                            Intent intent = new Intent(SplashScreen.this, manage_pwd.class);
                             startActivity(intent);
                         }
 

@@ -34,7 +34,7 @@ public class adapter extends FirestoreRecyclerAdapter<note,adapter.NoteViewHolde
             @Override
             public void onClick(View view) {
                 int currentPosition = holder.getBindingAdapterPosition();
-                Intent intent = new Intent(context,manage_password.class);
+                Intent intent = new Intent(context, manage_pwd.class);
                 intent.putExtra("title",model.title);
                 intent.putExtra("content",model.content);
                 String docId = getSnapshots().getSnapshot(currentPosition).getId();

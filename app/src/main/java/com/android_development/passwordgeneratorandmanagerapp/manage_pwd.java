@@ -9,19 +9,15 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
 
-public class manage_password extends AppCompatActivity {
+public class manage_pwd extends AppCompatActivity {
 
     EditText pwd,desc;
     ImageButton saveBtn;
@@ -34,7 +30,7 @@ public class manage_password extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
    //     EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_manage_passw);
+        setContentView(R.layout.activity_manage_pwd);
 //        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
 //            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
 //            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -80,7 +76,7 @@ public class manage_password extends AppCompatActivity {
         generateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(manage_password.this,generate_pwd.class);
+                Intent intent = new Intent(manage_pwd.this,generate_pwd.class);
                 startActivity(intent);
             }
         });
@@ -102,7 +98,7 @@ public class manage_password extends AppCompatActivity {
                 Note.setContent(content);
                 Note.setTimestamp(Timestamp.now());
                 save(Note);
-                Intent intent = new Intent(manage_password.this,SplashScreen.class);
+                Intent intent = new Intent(manage_pwd.this,SplashScreen.class);
                 startActivity(intent);
             }
 
@@ -132,7 +128,7 @@ public class manage_password extends AppCompatActivity {
                             finish();
                         }
                         else{
-                            utility.showToast(manage_password.this,"Error Occurred While Adding Password ");
+                            utility.showToast(manage_pwd.this,"Error Occurred While Adding Password ");
                         }
 
                     }
@@ -143,7 +139,7 @@ public class manage_password extends AppCompatActivity {
         dltBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(manage_password.this,SplashScreen.class);
+                Intent intent = new Intent(manage_pwd.this,SplashScreen.class);
                 startActivity(intent);
                 DocumentReference documentReference;
                 documentReference = utility.getCollectionReference().document(docId);
@@ -154,13 +150,13 @@ public class manage_password extends AppCompatActivity {
                         if(task.isSuccessful())
                         {
                             // successfully deleted......
-                            utility.showToast(manage_password.this,"Password Deleted Successfully");
+                            utility.showToast(manage_pwd.this,"Password Deleted Successfully");
 
 
 
                         }
                         else{
-                            utility.showToast(manage_password.this,"Error Occurred While Deleting Password ");
+                            utility.showToast(manage_pwd.this,"Error Occurred While Deleting Password ");
                         }
 
                     }
