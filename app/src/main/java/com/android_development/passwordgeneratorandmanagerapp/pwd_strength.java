@@ -84,4 +84,3 @@ public class pwd_strength extends AppCompatActivity {
         });
     }
 }
-// passwordStrengthBar.getProgressDrawable().setColorFilter(getResources().getColor(R.color.red), PorterDuff.Mode.SRC_IN);
