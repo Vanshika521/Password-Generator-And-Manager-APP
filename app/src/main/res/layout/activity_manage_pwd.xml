@@ -20,7 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Add New Password"
+                android:text="Edit Your Information"
                 android:layout_marginLeft="5dp"
                 android:textColor="@color/white"
                 android:textSize="25dp"
@@ -90,7 +90,7 @@
             android:layout_marginRight="10dp"
             android:textColor="@color/white"
             android:layout_marginBottom="20dp"
-            android:visibility="gone"
+
             android:layout_alignParentBottom="true"
             android:backgroundTint="#FF0000"
             />
@@ -105,7 +105,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:textColor="@color/black"
-           android:layout_marginBottom="20dp"
+            android:layout_marginBottom="20dp"
             android:visibility="gone"
             android:layout_alignParentBottom="true"
             android:backgroundTint="#D9F0F2"
