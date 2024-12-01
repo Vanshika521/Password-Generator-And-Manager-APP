@@ -13,6 +13,7 @@
         tools:context=".pwd_strength"
         android:background="#3795BD">
 
+
         <TextView
             android:id="@+id/textView1"
             android:layout_width="match_parent"
